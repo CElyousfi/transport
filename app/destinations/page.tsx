@@ -55,18 +55,8 @@ export default function DestinationsPage() {
           <h3 className="cta-component__text is-h3">{copy.destinationsInline}</h3>
         </div>
 
-        {/* ══ 3. USP (route summary) ══ */}
-        <section className="usp-component" style={{ "--430aca47": "#f0f4f8" } as any}>
-          <div className="usp-component__heading">
-            <h2 className="usp-component__title">{copy.destinationsInline}</h2>
-          </div>
-          <div className="usp-component__text">
-            <p>{copy.routesIntro}</p>
-          </div>
-        </section>
-
-        {/* ── Country Cards (content-card-component) ── */}
-        <div className="content-card-component kicker-gray" style={{ "--323e8b66": "#f0f4f8" } as any}>
+        {/* ── Country Cards ── */}
+        <div className="content-card-component kicker-gray" style={{ "--323e8b66": "#ffffff" } as any}>
           <div className="content-card-component__container">
             <div className="content-card-component__header">
               <h5 className="content-card-component__kicker">{copy.nav.destinations}</h5>
@@ -98,7 +88,7 @@ export default function DestinationsPage() {
         </div>
 
         {/* ── Stats (awards-component) ── */}
-        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#ffffff", "--55d833ba": "#f0f4f8" } as any}>
+        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#ffffff", "--55d833ba": "#ffffff" } as any}>
           <div className="awards-component__container">
             <div className="awards-component__header">
               <h5 className="awards-component__kicker">{copy.keyFiguresTitle}</h5>

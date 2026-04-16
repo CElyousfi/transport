@@ -40,7 +40,7 @@ export default function ServicesPage() {
         </div>
 
         {/* ══ 3. Key Figures (awards-component) ══ */}
-        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#f0f4f8", "--55d833ba": "#f0f4f8" } as any}>
+        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#ffffff", "--55d833ba": "#ffffff" } as any}>
           <div className="awards-component__container">
             <div className="awards-component__body">
               {copy.keyFigures.slice(0, 4).map((kf, i) => (
@@ -53,7 +53,7 @@ export default function ServicesPage() {
                       {i === 3 && <><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>}
                     </svg>
                   </div>
-                  <h3 className="awards-item__title">{kf.match(/\d+/)?.[0] || "✓"}</h3>
+                  <h3 className="awards-item__title">{kf.match(/\d+/)?.[0] || "-"}</h3>
                   <p className="awards-item__text"><span>{kf}</span></p>
                 </div>
               ))}
@@ -61,54 +61,8 @@ export default function ServicesPage() {
           </div>
         </div>
 
-        {/* ── Services (slider-up layout) ── */}
-        <div
-          className="slider-up-component custom-overlay"
-          style={{ "--64155f60": "#ffffff", "--c1a3637e": "#f0f4f8" } as React.CSSProperties}
-        >
-          <div className="slider-up-component__container">
-            <h2 className="slider-up-component__header-title">
-              <span>{copy.servicesPageIntro}</span>
-            </h2>
-            <div className="slider-up-component__body">
-              <div className="slider-up-component__text-list">
-                {copy.services.map((service, idx) => (
-                  <div key={service.id} className="slider-up-item text-item is-active">
-                    <div className="slider-up-item__media-block">
-                      <img
-                        src={SERVICE_IMAGES[idx] || SERVICE_IMAGES[0]}
-                        alt={service.title}
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="slider-up-item__text-block" style={{ opacity: 1 }}>
-                      <h5 className="slider-up-item__kicker">0{idx + 1}</h5>
-                      <h3 className="slider-up-item__title">{service.title}</h3>
-                      <p className="slider-up-item__text">
-                        {service.intro || service.bullets[0]}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="slider-up-component__img-list" style={{ position: "sticky", top: "20vh" }}>
-                <div className="slider-up-item img-item is-active" style={{ display: "block", position: "relative" }}>
-                  <div className="slider-up-item__media-block" style={{ display: "block", position: "relative", borderRadius: 12, overflow: "hidden", opacity: 1 }}>
-                    <img
-                      src={SERVICE_IMAGES[0]}
-                      alt={copy.nav.services}
-                      loading="lazy"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Service Detail Cards (content-card-component) ── */}
-        <div className="content-card-component kicker-gray" style={{ "--323e8b66": "#f0f4f8" } as any}>
+        {/* ── Service Cards ── */}
+        <div className="content-card-component kicker-gray" style={{ "--323e8b66": "#ffffff" } as any}>
           <div className="content-card-component__container">
             <div className="content-card-component__header">
               <h5 className="content-card-component__kicker">{copy.nav.services}</h5>

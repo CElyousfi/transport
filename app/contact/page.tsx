@@ -65,11 +65,11 @@ export default function ContactPage() {
         </div>
 
         {/* ══ 3. Contact channels — cta + awards (like Wallbox "Assistance technique") ══ */}
-        <div className="cta-component large-padding" style={{ "--439b4506": "#f0f4f8", "--43eebefe": "none" } as any}>
+        <div className="cta-component large-padding" style={{ "--439b4506": "#FFFFFF", "--43eebefe": "none" } as any}>
           <h5 className="cta-component__kicker">{copy.companyName}</h5>
           <h3 className="cta-component__text is-h3">{copy.contact.title}</h3>
         </div>
-        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#f0f4f8", "--55d833ba": "#f0f4f8" } as any}>
+        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#ffffff", "--55d833ba": "#ffffff" } as any}>
           <div className="awards-component__container">
             <div className="awards-component__body">
               <div className="awards-item text-semibold">
@@ -104,41 +104,40 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* ══ 4. "Où nous trouver" — image-text style with slider-up ══ */}
-        <div
-          className="slider-up-component text-white custom-overlay"
-          style={{ "--64155f60": "#2A3950", "--c1a3637e": "#2A3950" } as React.CSSProperties}
-        >
-          <div className="slider-up-component__container">
-            <h2 className="slider-up-component__header-title" style={{ color: "#fff" }}>
-              <span>{findUs}</span>
-            </h2>
-            <div className="slider-up-component__body">
-              <div className="slider-up-component__text-list">
-                <div className="slider-up-item text-item is-active">
-                  <div className="slider-up-item__text-block" style={{ opacity: 1 }}>
-                    <h5 className="slider-up-item__kicker" style={{ color: "rgba(255,255,255,0.6)" }}>{offices}</h5>
-                    <h3 className="slider-up-item__title" style={{ color: "#fff" }}>{hqLabel}</h3>
-                    <p className="slider-up-item__text" style={{ color: "rgba(255,255,255,0.85)" }}>Casablanca, Maroc</p>
+        {/* ══ 4. "Où nous trouver" — clean white section ══ */}
+        <section style={{ background: "#fff", padding: "80px 24px" }}>
+          <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 48 }}>
+              <h5 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#5B5555", marginBottom: 12 }}>{offices}</h5>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 500, color: "#202124", lineHeight: 1.12 }}>{findUs}</h2>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
+              <div>
+                <div style={{ marginBottom: 40 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, background: "rgba(25,37,56,0.08)", color: "#192538" }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <h3 style={{ fontSize: 20, fontWeight: 600, color: "#202124" }}>{hqLabel}</h3>
                   </div>
+                  <p style={{ fontSize: 16, color: "#5B5555", paddingLeft: 52 }}>Casablanca, Maroc</p>
                 </div>
-                <div className="slider-up-item text-item is-active">
-                  <div className="slider-up-item__text-block" style={{ opacity: 1 }}>
-                    <h5 className="slider-up-item__kicker" style={{ color: "rgba(255,255,255,0.6)" }}>{networkLabel}</h5>
-                    <p className="slider-up-item__text" style={{ color: "rgba(255,255,255,0.85)" }}>{networkDesc}</p>
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, background: "rgba(25,37,56,0.08)", color: "#192538" }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </span>
+                    <h3 style={{ fontSize: 20, fontWeight: 600, color: "#202124" }}>{networkLabel}</h3>
                   </div>
+                  <p style={{ fontSize: 16, color: "#5B5555", paddingLeft: 52, lineHeight: 1.6 }}>{networkDesc}</p>
                 </div>
               </div>
-              <div className="slider-up-component__img-list">
-                <div className="slider-up-item img-item is-active" style={{ display: "block", position: "relative" }}>
-                  <div className="slider-up-item__media-block" style={{ display: "block", borderRadius: 12, overflow: "hidden", opacity: 1 }}>
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80" alt={findUs} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                  </div>
-                </div>
+              <div style={{ borderRadius: 16, overflow: "hidden" }}>
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80" alt={findUs} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", aspectRatio: "4/3" }} />
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* ══ 5. Contact form — clean section ══ */}
         <section id="form" style={{ background: "#fff", padding: "80px 24px" }}>
@@ -149,7 +148,7 @@ export default function ContactPage() {
               <p style={{ fontSize: 16, color: "#5B5555" }}>{copy.contact.role}</p>
             </div>
             <div style={{ background: "#f0f4f8", borderRadius: 16, padding: "40px 36px" }}>
-              <form onSubmit={(e) => e.preventDefault()} style={{ display: "grid", gap: 20, gridTemplateColumns: "repeat(2, 1fr)" }}>
+              <form onSubmit={(e) => e.preventDefault()} className="ssw-contact-form">
                 <div style={fieldStyle}>
                   <label style={labelStyle}>{copy.contact.fields.fullName}</label>
                   <input style={inputStyle} type="text" name="fullName" required />

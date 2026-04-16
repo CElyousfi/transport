@@ -2,27 +2,32 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/components/LanguageProvider";
+import type { Lang } from "@/lib/siteContent";
 
-const SLIDES = [
+type Slide = { bg: string; accent: string; title: Record<Lang, string>; text: Record<Lang, string>; cta: Record<Lang, string>; href: string };
+
+const SLIDES: Slide[] = [
   {
     bg: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1440&q=80",
     accent: "#192538",
-    title: "Votre partenaire de confiance Maroc ↔ Europe",
-    text: "Transport routier international fiable avec départs quotidiens vers toute l'Europe.",
-    cta: "Découvrir nos solutions",
-    href: "/#services",
+    title: { fr: "Votre partenaire Maroc ↔ Europe", en: "Your Morocco ↔ Europe partner", es: "Su socio Marruecos ↔ Europa" },
+    text: { fr: "Transport routier international. Départs quotidiens.", en: "International road transport. Daily departures.", es: "Transporte internacional por carretera. Salidas diarias." },
+    cta: { fr: "Nos solutions", en: "Our solutions", es: "Nuestras soluciones" },
+    href: "/services",
   },
   {
     bg: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1440&q=80",
-    accent: "#5B5555",
-    title: "Spécialistes du transport frigorifique international",
-    text: "Flotte 100% géolocalisable, renouvelée tous les 3 ans. KRONE, SCHMITZ, DAF, MERCEDES.",
-    cta: "Notre flotte",
-    href: "/#fleet",
+    accent: "#085D52",
+    title: { fr: "Transport frigorifique international", en: "International reefer transport", es: "Transporte frigorífico internacional" },
+    text: { fr: "Flotte 100% géolocalisable. KRONE, SCHMITZ, DAF, MERCEDES.", en: "100% GPS-tracked fleet. KRONE, SCHMITZ, DAF, MERCEDES.", es: "Flota 100% geolocalizable. KRONE, SCHMITZ, DAF, MERCEDES." },
+    cta: { fr: "Notre flotte", en: "Our fleet", es: "Nuestra flota" },
+    href: "/services",
   },
 ];
 
 export default function HeroSlider() {
+  const { lang } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [leaving, setLeaving] = useState<number | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -94,13 +99,13 @@ export default function HeroSlider() {
               } as any}
             >
               <div className="slider-banner-item__content">
-                <h2 className="slider-banner-item__title">{slide.title}</h2>
-                <p className="slider-banner-item__text">{slide.text}</p>
+                <h2 className="slider-banner-item__title">{slide.title[lang]}</h2>
+                <p className="slider-banner-item__text">{slide.text[lang]}</p>
                 <Link
                   href={slide.href}
                   className="button button-text secondary short internal-link slider-banner-item__button"
                 >
-                  {slide.cta}
+                  {slide.cta[lang]}
                 </Link>
               </div>
             </div>

@@ -55,7 +55,7 @@ export default function ContactFormSection() {
   };
 
   return (
-    <section style={{ background: "#f0f4f8", padding: "80px 24px" }}>
+    <section style={{ background: "#fff", padding: "80px 24px" }}>
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
         {/* Section header */}
         <div style={{ textAlign: "center", marginBottom: 48 }}>
@@ -119,7 +119,7 @@ export default function ContactFormSection() {
               <h3 style={{ fontSize: 22, fontWeight: 600, color: "#202124" }}>{copy.contact.person}</h3>
             </div>
             <p style={{ fontSize: 15, color: "#5B5555", marginBottom: 32 }}>{copy.contact.role}</p>
-            <form onSubmit={(e) => e.preventDefault()} style={{ display: "grid", gap: 20, gridTemplateColumns: "repeat(2, 1fr)" }}>
+            <form onSubmit={(e) => e.preventDefault()} className="ssw-contact-form">
               <div style={fieldStyle}>
                 <label style={labelStyle}>{copy.contact.fields.fullName}</label>
                 <input style={inputStyle} type="text" name="fullName" required />

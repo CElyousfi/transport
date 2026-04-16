@@ -5,48 +5,49 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/components/LanguageProvider";
 import { SITE_CONTENT } from "@/lib/siteContent";
+import type { Lang } from "@/lib/siteContent";
 
 type TestimonialData = {
-  text: { fr: string; en: string; es: string };
-  author: string;
+  text: Record<Lang, string>;
+  author: Record<Lang, string>;
   company: string;
 };
 
 const TESTIMONIALS: TestimonialData[] = [
   {
     text: {
-      fr: "SAFE SOLUTION WHEELS MOROCCO a transformé notre chaîne d'approvisionnement. Leurs délais de livraison sont exceptionnels et le suivi GPS en temps réel nous donne une tranquillité totale.",
-      en: "SAFE SOLUTION WHEELS MOROCCO has transformed our supply chain. Their delivery times are exceptional and real-time GPS tracking gives us total peace of mind.",
-      es: "SAFE SOLUTION WHEELS MOROCCO ha transformado nuestra cadena de suministro. Sus tiempos de entrega son excepcionales y el rastreo GPS en tiempo real nos da total tranquilidad.",
+      fr: "Delais exceptionnels et suivi GPS en temps reel. SSW a transforme notre supply chain.",
+      en: "Exceptional delivery times and real-time GPS tracking. SSW transformed our supply chain.",
+      es: "Plazos excepcionales y rastreo GPS en tiempo real. SSW transformo nuestra cadena.",
     },
-    author: "Directeur Logistique",
+    author: { fr: "Directeur Logistique", en: "Logistics Director", es: "Director de Logistica" },
     company: "Agroalimentaire — France",
   },
   {
     text: {
-      fr: "Le professionnalisme de l'équipe SSW est remarquable. La gestion du transport frigorifique pour nos produits pharmaceutiques est irréprochable.",
-      en: "The professionalism of the SSW team is remarkable. The management of refrigerated transport for our pharmaceutical products is impeccable.",
-      es: "La profesionalidad del equipo de SSW es notable. La gestión del transporte refrigerado para nuestros productos farmacéuticos es impecable.",
+      fr: "Gestion irreprochable du transport frigorifique pour nos produits pharmaceutiques.",
+      en: "Impeccable management of refrigerated transport for our pharmaceutical products.",
+      es: "Gestion impecable del transporte refrigerado para nuestros productos farmaceuticos.",
     },
-    author: "Responsable Supply Chain",
+    author: { fr: "Responsable Supply Chain", en: "Supply Chain Manager", es: "Responsable Supply Chain" },
     company: "Pharmaceutique — Belgique",
   },
   {
     text: {
-      fr: "Nous travaillons avec SSW depuis plusieurs années. Leur réseau européen est solide, et leur flexibilité face aux imprévus est un vrai atout.",
-      en: "We've been working with SSW for several years. Their European network is solid, and their flexibility in the face of unforeseen events is a real asset.",
-      es: "Llevamos varios años trabajando con SSW. Su red europea es sólida y su flexibilidad ante imprevistos es una verdadera ventaja.",
+      fr: "Reseau europeen solide, flexibilite remarquable face aux imprevus.",
+      en: "Solid European network, remarkable flexibility with unexpected situations.",
+      es: "Red europea solida, flexibilidad notable ante imprevistos.",
     },
-    author: "Gérant",
+    author: { fr: "Gerant", en: "Manager", es: "Gerente" },
     company: "Export Agricole — Maroc",
   },
   {
     text: {
-      fr: "Service impeccable pour le transport de nos fruits et légumes. Les camions frigorifiques sont toujours en parfait état et les conducteurs très professionnels.",
-      en: "Impeccable service for transporting our fruits and vegetables. The refrigerated trucks are always in perfect condition and the drivers very professional.",
-      es: "Servicio impecable para el transporte de nuestras frutas y verduras. Los camiones frigoríficos siempre están en perfecto estado y los conductores son muy profesionales.",
+      fr: "Service impeccable. Camions frigorifiques en parfait etat, conducteurs professionnels.",
+      en: "Impeccable service. Refrigerated trucks in perfect condition, professional drivers.",
+      es: "Servicio impecable. Camiones frigorificos en perfecto estado, conductores profesionales.",
     },
-    author: "Directeur Commercial",
+    author: { fr: "Directeur Commercial", en: "Sales Director", es: "Director Comercial" },
     company: "Distribution — Espagne",
   },
 ];
@@ -99,24 +100,14 @@ export default function ReferencesPage() {
         {/* ══ 2. Intro ══ */}
         <div className="cta-component large-padding" style={{ "--439b4506": "#FFFFFF", "--43eebefe": "none" } as any}>
           <h5 className="cta-component__kicker">{copy.nav.references}</h5>
-          <h3 className="cta-component__text is-h3">{copy.referencesPlaceholder}</h3>
+          <h3 className="cta-component__text is-h3">{copy.hero.subtitle}</h3>
         </div>
 
-        {/* ══ 3. USP ══ */}
-        <section className="usp-component" style={{ "--430aca47": "#f0f4f8" } as any}>
-          <div className="usp-component__heading">
-            <h2 className="usp-component__title">{copy.referencesTitle}</h2>
-          </div>
-          <div className="usp-component__text">
-            <p>{copy.referencesPlaceholder}</p>
-          </div>
-        </section>
-
-        {/* ── Testimonials (content-card-component) ── */}
-        <div className="content-card-component kicker-gray" style={{ "--323e8b66": "#f0f4f8" } as any}>
+        {/* ── Testimonials ── */}
+        <div className="content-card-component kicker-gray" style={{ "--323e8b66": "#ffffff" } as any}>
           <div className="content-card-component__container">
             <div className="content-card-component__header">
-              <h5 className="content-card-component__kicker">{copy.nav.references}</h5>
+              <h5 className="content-card-component__kicker">{lang === "fr" ? "Temoignages" : lang === "es" ? "Testimonios" : "Testimonials"}</h5>
               <h2 className="content-card-component__title">{copy.referencesTitle}</h2>
             </div>
             <div className="content-card-component__body">
@@ -124,11 +115,13 @@ export default function ReferencesPage() {
                 <div key={idx} className="content-card-item width-50" style={{ "--544cc3b0": "#ffffff" } as any}>
                   <div className="content-card-item__wrapper">
                     <div className="content-card-item__text-block">
-                      <h5 className="content-card-item__kicker" style={{ color: "#f4b400" }}>★★★★★</h5>
+                      <h5 className="content-card-item__kicker" style={{ color: "#f4b400", display: "flex", gap: 2 }}>
+                        {[0,1,2,3,4].map(s => <svg key={s} width="16" height="16" viewBox="0 0 24 24" fill="#f4b400" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+                      </h5>
                       <p className="content-card-item__text">&ldquo;{t.text[lang]}&rdquo;</p>
                     </div>
                     <div>
-                      <h4 className="content-card-item__title" style={{ fontSize: 18 }}>{t.author}</h4>
+                      <h4 className="content-card-item__title" style={{ fontSize: 18 }}>{t.author[lang]}</h4>
                       <span className="content-card-item__kicker">{t.company}</span>
                     </div>
                   </div>
@@ -150,7 +143,8 @@ export default function ReferencesPage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 20 }}>
               {CLIENT_SECTORS.map((client) => (
                 <div key={client.name} style={{
-                  background: "#f0f4f8",
+                  background: "#fff",
+                  border: "1px solid #e5e8ed",
                   borderRadius: 16,
                   padding: "32px 24px",
                   textAlign: "center",
@@ -166,7 +160,7 @@ export default function ReferencesPage() {
         </section>
 
         {/* ── Stats (awards-component) ── */}
-        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#f0f4f8", "--55d833ba": "#ffffff" } as any}>
+        <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#ffffff", "--55d833ba": "#ffffff" } as any}>
           <div className="awards-component__container">
             <div className="awards-component__header">
               <h5 className="awards-component__kicker">{copy.keyFiguresTitle}</h5>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./wallbox.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import Chatbot from "@/components/Chatbot";
 
 export const metadata: Metadata = {
   title: "Transport Routier International Maroc-Europe | Safe Solution Wheels Morocco",
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <Chatbot />
+        </LanguageProvider>
       </body>
     </html>
   );
