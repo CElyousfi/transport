@@ -2,6 +2,10 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { SITE_CONTENT } from "@/lib/siteContent";
+import MailIcon from "@/icons/mail-icon";
+import PhoneIcon from "@/icons/phone-icon";
+import PinIcon from "@/icons/pin-icon";
+import ClockIcon from "@/icons/clock-icon";
 
 const iconBox: React.CSSProperties = {
   width: 44, height: 44, borderRadius: 12,
@@ -77,7 +81,7 @@ export default function ContactFormSection() {
           }}>
             <div style={{ background: "#fff", borderRadius: 16, padding: "24px 20px", border: "1px solid #e5e8ed", display: "flex", alignItems: "center", gap: 14 }}>
               <div style={iconBox}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+<MailIcon size={22} strokeWidth={1.5} />
               </div>
               <div>
                 <div style={detailLabel}>{copy.contact.emailLabel}</div>
@@ -86,7 +90,7 @@ export default function ContactFormSection() {
             </div>
             <div style={{ background: "#fff", borderRadius: 16, padding: "24px 20px", border: "1px solid #e5e8ed", display: "flex", alignItems: "center", gap: 14 }}>
               <div style={iconBox}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<PhoneIcon size={22} strokeWidth={1.5} />
               </div>
               <div>
                 <div style={detailLabel}>{copy.contact.phoneLabel}</div>
@@ -95,7 +99,7 @@ export default function ContactFormSection() {
             </div>
             <div style={{ background: "#fff", borderRadius: 16, padding: "24px 20px", border: "1px solid #e5e8ed", display: "flex", alignItems: "center", gap: 14 }}>
               <div style={iconBox}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+<PinIcon size={22} strokeWidth={1.5} />
               </div>
               <div>
                 <div style={detailLabel}>{addressLabel}</div>
@@ -104,7 +108,7 @@ export default function ContactFormSection() {
             </div>
             <div style={{ background: "#fff", borderRadius: 16, padding: "24px 20px", border: "1px solid #e5e8ed", display: "flex", alignItems: "center", gap: 14 }}>
               <div style={iconBox}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<ClockIcon size={22} strokeWidth={1.5} />
               </div>
               <div>
                 <div style={detailLabel}>{hoursLabel}</div>

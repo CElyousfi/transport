@@ -10,6 +10,10 @@ import TruckIcon from "@/icons/truck-icon";
 import ClockIcon from "@/icons/clock-icon";
 import CrosshairIcon from "@/icons/crosshair-icon";
 import GlobeIcon from "@/icons/globe-icon";
+import UsersIcon from "@/icons/users-icon";
+import ShieldIcon from "@/icons/shield-icon";
+import StarIcon from "@/icons/star-icon";
+import MailIcon from "@/icons/mail-icon";
 
 const T = {
   heroTitle: { fr: "A propos de SSWM", en: "About SSWM", es: "Acerca de SSWM" } as Record<Lang, string>,
@@ -36,12 +40,12 @@ const KPIS = (lang: Lang) => [
 ];
 
 const VALUE_ICONS = [
-  <svg key="0" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>,
-  <svg key="1" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-  <svg key="2" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-  <svg key="3" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>,
-  <svg key="4" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
-  <svg key="5" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>,
+  <MailIcon key="0" size={32} strokeWidth={1.5} />,
+  <UsersIcon key="1" size={32} strokeWidth={1.5} />,
+  <ShieldIcon key="2" size={32} strokeWidth={1.5} />,
+  <GlobeIcon key="3" size={32} strokeWidth={1.5} />,
+  <StarIcon key="4" size={32} strokeWidth={1.5} />,
+  <UsersIcon key="5" size={32} strokeWidth={1.5} />,
 ];
 
 export default function AboutPage() {

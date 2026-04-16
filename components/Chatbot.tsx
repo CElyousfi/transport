@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { Lang } from "@/lib/siteContent";
+import BrandGeminiIcon from "@/icons/brand-gemini-icon";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -95,12 +96,6 @@ function renderMarkdown(text: string) {
   return elements;
 }
 
-const ChatIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M14 0C14 0 14 10.5 7 14C14 17.5 14 28 14 28C14 28 14 17.5 21 14C14 10.5 14 0 14 0Z" fill="white"/>
-    <path d="M6 2C6 2 6 6.5 3 8C6 9.5 6 14 6 14C6 14 6 9.5 9 8C6 6.5 6 2 6 2Z" fill="white" opacity="0.7"/>
-  </svg>
-);
 
 export default function Chatbot() {
   const { lang } = useLanguage();
@@ -168,7 +163,7 @@ export default function Chatbot() {
               <polyline points="6 9 12 15 18 9" />
             </svg>
           ) : (
-            <ChatIcon />
+            <BrandGeminiIcon size={28} color="#fff" />
           )}
         </span>
       </button>

@@ -1,7 +1,11 @@
 import Groq from "groq-sdk";
 import { NextRequest, NextResponse } from "next/server";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+let _groq: Groq | null = null;
+function getGroq() {
+  if (!_groq) _groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+  return _groq;
+}
 
 const SYSTEM_PROMPT = `You are the official AI assistant for Safe Solution Wheels Morocco (SSWM). You MUST follow these rules strictly:
 
@@ -82,7 +86,7 @@ export async function POST(req: NextRequest) {
     const langName = LANG_NAMES[lang] || "French";
     const systemWithLang = SYSTEM_PROMPT + `\n\n--- ACTIVE LANGUAGE ---\nThe website language is set to: ${langName} (${lang}). You MUST respond ONLY in ${langName}. This is mandatory.`;
 
-    const chatCompletion = await groq.chat.completions.create({
+    const chatCompletion = await getGroq().chat.completions.create({
       model: "llama-3.3-70b-versatile",
       messages: [
         { role: "system", content: systemWithLang },

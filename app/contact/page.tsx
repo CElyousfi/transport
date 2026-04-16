@@ -5,6 +5,12 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/components/LanguageProvider";
 import { SITE_CONTENT } from "@/lib/siteContent";
+import MailIcon from "@/icons/mail-icon";
+import PhoneIcon from "@/icons/phone-icon";
+import PinIcon from "@/icons/pin-icon";
+import ClockIcon from "@/icons/clock-icon";
+import GlobeIcon from "@/icons/globe-icon";
+import ArrowRightIcon from "@/icons/arrow-right-icon";
 
 export default function ContactPage() {
   const { lang } = useLanguage();
@@ -49,17 +55,23 @@ export default function ContactPage() {
               <h4 className="cards-component-item__title">{getQuote}</h4>
               <p className="cards-component-item__description">{getQuoteDesc}</p>
               <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: "50%", border: "2px solid #fff", marginTop: "auto" }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 12-4-4M16 12l-4 4M16 12H8"/></svg>
+                <ArrowRightIcon size={20} color="#fff" />
               </span>
             </Link>
           </div>
           <div className="cards-component__column">
-            <Link href="#form" className="cards-component-item text-white" style={{ "--0632786e": "#2A3950", textDecoration: "none" } as any}>
-              <h4 className="cards-component-item__title">{becomePartner}</h4>
-              <p className="cards-component-item__description">{becomePartnerDesc}</p>
-              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: "50%", border: "2px solid #fff", marginTop: "auto" }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 12-4-4M16 12l-4 4M16 12H8"/></svg>
-              </span>
+            <Link
+              className="cards-component-item custom-bg text-white"
+              href="/contact#partner"
+              style={{ "--0632786e": "#FFFFFF", "--058b847e": "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80')", "--d0bc404a": "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80')", "--d0bc41d0": "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80')" } as any}
+            >
+              <div className="cards-component-item__content">
+                <h4 className="cards-component-item__title">{becomePartner}</h4>
+                <p className="cards-component-item__description">{becomePartnerDesc}</p>
+                <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: "50%", border: "2px solid #fff", marginTop: "auto" }}>
+                  <ArrowRightIcon size={20} color="#fff" />
+                </span>
+              </div>
             </Link>
           </div>
         </div>
@@ -74,28 +86,28 @@ export default function ContactPage() {
             <div className="awards-component__body">
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  <MailIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">{copy.contact.emailLabel}</h3>
                 <p className="awards-item__text"><span><a href="mailto:sales@ssw.ma" style={{ color: "#192538" }}>sales@ssw.ma</a></span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <PhoneIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">{copy.contact.phoneLabel}</h3>
                 <p className="awards-item__text"><span><a href="tel:+212700745971" style={{ color: "#192538" }}>+212 (0) 700 74 59 71</a></span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <PinIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">{addressLabel}</h3>
                 <p className="awards-item__text"><span>{address}</span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <ClockIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">{hoursLabel}</h3>
                 <p className="awards-item__text"><span>{hours}</span></p>
@@ -116,7 +128,7 @@ export default function ContactPage() {
                 <div style={{ marginBottom: 40 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                     <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, background: "rgba(25,37,56,0.08)", color: "#192538" }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                      <PinIcon size={20} strokeWidth={1.5} />
                     </span>
                     <h3 style={{ fontSize: 20, fontWeight: 600, color: "#202124" }}>{hqLabel}</h3>
                   </div>
@@ -125,7 +137,7 @@ export default function ContactPage() {
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                     <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, background: "rgba(25,37,56,0.08)", color: "#192538" }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                      <GlobeIcon size={20} strokeWidth={1.5} />
                     </span>
                     <h3 style={{ fontSize: 20, fontWeight: 600, color: "#202124" }}>{networkLabel}</h3>
                   </div>
