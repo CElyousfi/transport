@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/components/LanguageProvider";
 import { SITE_CONTENT } from "@/lib/siteContent";
 import type { Lang } from "@/lib/siteContent";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import TruckIcon from "@/icons/truck-icon";
 import ClockIcon from "@/icons/clock-icon";
 import CrosshairIcon from "@/icons/crosshair-icon";
@@ -48,6 +50,83 @@ const VALUE_ICONS = [
   <UsersIcon key="5" size={32} strokeWidth={1.5} />,
 ];
 
+type TDict = Record<Lang, string>;
+type TShape = Record<string, TDict>;
+
+function DirectorSection({ lang, T, companyName }: { lang: Lang; T: TShape; companyName: string }) {
+  const items = [
+    { kicker: T.mission[lang], text: T.missionText[lang] },
+    { kicker: T.strategy[lang], text: T.strategyText[lang] },
+    { kicker: T.commitment[lang], text: T.commitmentText[lang] },
+  ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 3500);
+    return () => clearInterval(id);
+  }, [items.length]);
+
+  return (
+    <div className="ssw-director-section">
+      {/* ── Mobile layout ── */}
+      <div className="ssw-director-mobile">
+        <div className="ssw-director-mobile__photo-wrap">
+          <img src="/images/ZainabOutana.jpeg" alt="La Directrice" className="ssw-director-mobile__photo" />
+        </div>
+        <div className="ssw-director-mobile__text-wrap">
+          <h2 className="ssw-director-mobile__title">{T.directorTitle[lang]}</h2>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <p className="ssw-director-mobile__kicker">{items[index].kicker}</p>
+              <p className="ssw-director-mobile__text">{items[index].text}</p>
+            </motion.div>
+          </AnimatePresence>
+          <div className="ssw-director-mobile__dots">
+            {items.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`ssw-director-mobile__dot${i === index ? " active" : ""}`}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Desktop layout ── */}
+      <div className="ssw-director-desktop">
+        <div className="ssw-director-desktop__container">
+          <h2 className="ssw-director-desktop__title">{T.directorTitle[lang]}</h2>
+          <div className="ssw-director-desktop__body">
+            <div className="ssw-director-desktop__items">
+              {items.map((item, i) => (
+                <div
+                  key={i}
+                  className={`ssw-director-desktop__item${i === index ? " active" : ""}`}
+                  onMouseEnter={() => setIndex(i)}
+                >
+                  <p className="ssw-director-desktop__kicker">{item.kicker}</p>
+                  <p className="ssw-director-desktop__text">{item.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="ssw-director-desktop__photo-wrap">
+              <img src="/images/ZainabOutana.jpeg" alt={companyName} className="ssw-director-desktop__photo" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   const { lang } = useLanguage();
   const copy = SITE_CONTENT[lang];
@@ -74,37 +153,7 @@ export default function AboutPage() {
         </div>
 
         {/* 3. Mission / Strategy / Commitment */}
-        <div className="slider-up-component custom-overlay" style={{ "--64155f60": "#ffffff", "--c1a3637e": "#ffffff" } as React.CSSProperties}>
-          <div className="slider-up-component__container">
-            <h2 className="slider-up-component__header-title"><span>{T.directorTitle[lang]}</span></h2>
-            <div className="slider-up-component__body">
-              <div className="slider-up-component__text-list">
-                {[
-                  { kicker: T.mission[lang], text: T.missionText[lang], img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80" },
-                  { kicker: T.strategy[lang], text: T.strategyText[lang], img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" },
-                  { kicker: T.commitment[lang], text: T.commitmentText[lang], img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" },
-                ].map((item, i) => (
-                  <div key={i} className="slider-up-item text-item is-active">
-                    <div className="slider-up-item__media-block">
-                      <img src={item.img} className="slider-up-item__img" alt={item.kicker} loading="lazy" />
-                    </div>
-                    <div className="slider-up-item__text-block" style={{ opacity: 1 }}>
-                      <h5 className="slider-up-item__kicker">{item.kicker}</h5>
-                      <h3 className="slider-up-item__title">{item.text}</h3>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="slider-up-component__img-list">
-                <div className="slider-up-item img-item is-active" style={{ display: "block", position: "relative" }}>
-                  <div className="slider-up-item__media-block" style={{ display: "block", position: "relative", borderRadius: 12, overflow: "hidden", opacity: 1 }}>
-                    <img src="/images/ZainabOutana.jpeg" alt={copy.companyName} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DirectorSection lang={lang} T={T} companyName={copy.companyName} />
 
         {/* 4. KPIs */}
         <div className="awards-component kicker-gray custom-overlay" style={{ "--5e2e2337": "#ffffff", "--55d833ba": "#ffffff" } as any}>

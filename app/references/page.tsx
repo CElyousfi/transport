@@ -6,6 +6,16 @@ import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/components/LanguageProvider";
 import { SITE_CONTENT } from "@/lib/siteContent";
 import type { Lang } from "@/lib/siteContent";
+import LeafIcon from "@/icons/leaf-icon";
+import PillIcon from "@/icons/pill-icon";
+import SettingsIcon from "@/icons/settings-icon";
+import PackageIcon from "@/icons/package-icon";
+import GlobeIcon from "@/icons/globe-icon";
+import ShoppingBagIcon from "@/icons/shopping-bag-icon";
+import TruckIcon from "@/icons/truck-icon";
+import StarIcon from "@/icons/star-icon";
+import BuildingIcon from "@/icons/building-icon";
+import ShieldIcon from "@/icons/shield-icon";
 
 type TestimonialData = {
   text: Record<Lang, string>;
@@ -58,14 +68,14 @@ type ClientEntry = {
 };
 
 const SECTOR_ICONS: Record<string, React.ReactNode> = {
-  Agroalimentaire: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8Z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2Z"/></svg>,
-  Pharmaceutique: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>,
-  Industriel: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10.27 7 3.34"/><path d="m20.66 17-1.73-1"/><path d="m3.34 7 1.73 1"/><path d="M14 12h8"/><path d="M2 12h2"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m17 3.34-1 1.73"/><path d="m11 13.73-4 6.93"/></svg>,
-  Distribution: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg>,
-  Export: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>,
-  Textile: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>,
-  Automobile: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>,
-  Cosmétique: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>,
+  Agroalimentaire: <LeafIcon size={36} strokeWidth={1.5} />,
+  Pharmaceutique: <PillIcon size={36} strokeWidth={1.5} />,
+  Industriel: <SettingsIcon size={36} strokeWidth={1.5} />,
+  Distribution: <PackageIcon size={36} strokeWidth={1.5} />,
+  Export: <GlobeIcon size={36} strokeWidth={1.5} />,
+  Textile: <ShoppingBagIcon size={36} strokeWidth={1.5} />,
+  Automobile: <TruckIcon size={36} strokeWidth={1.5} />,
+  "Cosmétique": <StarIcon size={36} strokeWidth={1.5} />,
 };
 
 const CLIENT_SECTORS: ClientEntry[] = [
@@ -116,7 +126,7 @@ export default function ReferencesPage() {
                   <div className="content-card-item__wrapper">
                     <div className="content-card-item__text-block">
                       <h5 className="content-card-item__kicker" style={{ color: "#f4b400", display: "flex", gap: 2 }}>
-                        {[0,1,2,3,4].map(s => <svg key={s} width="16" height="16" viewBox="0 0 24 24" fill="#f4b400" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+                        {[0,1,2,3,4].map(s => <StarIcon key={s} size={16} color="#f4b400" fill="#f4b400" strokeWidth={0} />)}
                       </h5>
                       <p className="content-card-item__text">&ldquo;{t.text[lang]}&rdquo;</p>
                     </div>
@@ -169,28 +179,28 @@ export default function ReferencesPage() {
             <div className="awards-component__body">
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                  <TruckIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">+180</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Partenaires affrétés" : lang === "es" ? "Socios fletadores" : "Chartered partners"}</span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  <GlobeIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">11</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Pays desservis" : lang === "es" ? "Países atendidos" : "Countries served"}</span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>
+                  <BuildingIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">8+</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Secteurs d'activité" : lang === "es" ? "Sectores de actividad" : "Industry sectors"}</span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <ShieldIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">100%</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Satisfaction client" : lang === "es" ? "Satisfacción del cliente" : "Client satisfaction"}</span></p>

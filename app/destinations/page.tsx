@@ -5,6 +5,10 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/components/LanguageProvider";
 import { SERVED_COUNTRIES, SITE_CONTENT } from "@/lib/siteContent";
+import GlobeIcon from "@/icons/globe-icon";
+import ClockIcon from "@/icons/clock-icon";
+import TruckIcon from "@/icons/truck-icon";
+import PinIcon from "@/icons/pin-icon";
 
 const COUNTRY_DATA: Record<string, { img: string; nameFr: string; nameEs: string }> = {
   Morocco:     { img: "https://flagcdn.com/w640/ma.png", nameFr: "Maroc", nameEs: "Marruecos" },
@@ -97,28 +101,28 @@ export default function DestinationsPage() {
             <div className="awards-component__body">
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  <GlobeIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">11</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Pays desservis" : lang === "es" ? "Países atendidos" : "Countries served"}</span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <ClockIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">365</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Jours par an" : lang === "es" ? "Días al año" : "Days per year"}</span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                  <TruckIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">+180</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Véhicules partenaires" : lang === "es" ? "Vehículos socios" : "Partner vehicles"}</span></p>
               </div>
               <div className="awards-item text-semibold">
                 <div className="awards-item__icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <PinIcon size={48} strokeWidth={1.5} />
                 </div>
                 <h3 className="awards-item__title">24/7</h3>
                 <p className="awards-item__text"><span>{lang === "fr" ? "Suivi GPS" : lang === "es" ? "Rastreo GPS" : "GPS Tracking"}</span></p>

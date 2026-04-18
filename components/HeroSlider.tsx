@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { Lang } from "@/lib/siteContent";
+import ArrowRightIcon from "@/icons/arrow-right-icon";
 
 type Slide = { bg: string; accent: string; title: Record<Lang, string>; text: Record<Lang, string>; cta: Record<Lang, string>; href: string };
 
@@ -114,9 +115,7 @@ export default function HeroSlider() {
       </div>
       <div className="slider-banner__controls">
         <button type="button" aria-label="Previous" onClick={prev}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" className="nuxt-icon slider-banner__arrow left arrow-color">
-            <path fillRule="evenodd" d="M15.478 13.557H2.923v-3.114h12.554l-4.815-5.127 2.068-2.202L21.075 12l-8.344 8.886-2.068-2.202z" clipRule="evenodd" />
-          </svg>
+          <ArrowRightIcon size={24} color="#fff" className="nuxt-icon slider-banner__arrow left arrow-color" style={{ transform: "rotate(180deg)" }} />
         </button>
         <div className="slider-banner__dots dots-color">
           {SLIDES.map((_, i) => (
@@ -130,9 +129,7 @@ export default function HeroSlider() {
           ))}
         </div>
         <button type="button" aria-label="Next" onClick={next}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" className="nuxt-icon slider-banner__arrow arrow-color">
-            <path fillRule="evenodd" d="M15.478 13.557H2.923v-3.114h12.554l-4.815-5.127 2.068-2.202L21.075 12l-8.344 8.886-2.068-2.202z" clipRule="evenodd" />
-          </svg>
+          <ArrowRightIcon size={24} color="#fff" className="nuxt-icon slider-banner__arrow arrow-color" />
         </button>
       </div>
     </div>

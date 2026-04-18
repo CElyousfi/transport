@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>
+      <body suppressHydrationWarning>
         <LanguageProvider>
           {children}
           <Chatbot />

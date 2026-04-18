@@ -7,6 +7,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { LANG_OPTIONS, SITE_CONTENT } from "@/lib/siteContent";
 import type { Lang } from "@/lib/siteContent";
 import GlobeIconAnimated from "@/icons/globe-icon";
+import ChevronDownIcon from "@/icons/chevron-down-icon";
 
 
 export default function Navbar() {
@@ -87,9 +88,7 @@ export default function Navbar() {
             >
               <GlobeIconAnimated size={16} strokeWidth={1.5} />
               <span>{lang.toUpperCase()}</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ transition: "transform .2s", transform: langOpen ? "rotate(180deg)" : "none" }}>
-                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <ChevronDownIcon size={12} strokeWidth={1.5} style={{ transition: "transform .2s", transform: langOpen ? "rotate(180deg)" : "none" }} />
             </button>
             {langOpen && (
               <ul className="ssw-lang-menu" role="listbox">

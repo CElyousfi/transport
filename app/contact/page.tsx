@@ -51,12 +51,14 @@ export default function ContactPage() {
         {/* ══ 2. Action cards — cards-component (like Wallbox green cards) ══ */}
         <div className="cards-component" style={{ "--3467eec0": "#FFFFFF" } as any}>
           <div className="cards-component__column">
-            <Link href="#form" className="cards-component-item text-white" style={{ "--0632786e": "#192538", textDecoration: "none" } as any}>
-              <h4 className="cards-component-item__title">{getQuote}</h4>
-              <p className="cards-component-item__description">{getQuoteDesc}</p>
-              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: "50%", border: "2px solid #fff", marginTop: "auto" }}>
-                <ArrowRightIcon size={20} color="#fff" />
-              </span>
+            <Link href="#form" className="cards-component-item custom-bg text-white" style={{ "--0632786e": "#192538", "--058b847e": "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&q=80')", "--d0bc404a": "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80')", "--d0bc41d0": "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80')", textDecoration: "none" } as any}>
+              <div className="cards-component-item__content">
+                <h4 className="cards-component-item__title">{getQuote}</h4>
+                <p className="cards-component-item__description">{getQuoteDesc}</p>
+                <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: "50%", border: "2px solid #fff", marginTop: "auto" }}>
+                  <ArrowRightIcon size={20} color="#fff" />
+                </span>
+              </div>
             </Link>
           </div>
           <div className="cards-component__column">

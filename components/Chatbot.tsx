@@ -4,6 +4,9 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { Lang } from "@/lib/siteContent";
 import BrandGeminiIcon from "@/icons/brand-gemini-icon";
+import ChevronDownIcon from "@/icons/chevron-down-icon";
+import MessageIcon from "@/icons/message-icon";
+import SendIcon from "@/icons/send-icon";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -159,9 +162,7 @@ export default function Chatbot() {
       >
         <span>
           {open ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
+            <ChevronDownIcon size={24} color="#fff" strokeWidth={2} />
           ) : (
             <BrandGeminiIcon size={28} color="#fff" />
           )}
@@ -174,9 +175,7 @@ export default function Chatbot() {
           {/* Header */}
           <header className="ssw-chat-header">
             <div className="ssw-chat-header-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
+              <MessageIcon size={24} color="#fff" strokeWidth={1.5} />
             </div>
             <div className="ssw-chat-header-text">
               <h1>{TITLE[lang]}</h1>
@@ -188,9 +187,7 @@ export default function Chatbot() {
                 onClick={() => setOpen(false)}
                 aria-label="close chat"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
+                <ChevronDownIcon size={20} strokeWidth={2} />
               </button>
             </div>
           </header>
@@ -243,10 +240,7 @@ export default function Chatbot() {
               className="ssw-chat-send"
               aria-label="send message"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-              </svg>
+              <SendIcon size={20} strokeWidth={2} />
             </button>
           </form>
         </div>
